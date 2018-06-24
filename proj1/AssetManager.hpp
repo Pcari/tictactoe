@@ -2,11 +2,11 @@
 #include <map>
 #include <SFML/Graphics.hpp>
 
-namespace Cari {
+namespace Sonar {
 	class AssetManager {
 	public:
-		AssetManager() {}
-		~AssetManager() {}
+		AssetManager() { }
+		~AssetManager() { }
 
 		void LoadTexture(std::string name, std::string fileName);
 		sf::Texture &GetTexture(std::string name);
@@ -15,7 +15,7 @@ namespace Cari {
 		sf::Font &GetFont(std::string name);
 
 	private:
-		std::map<std::string, sf::Texture> textures;
-		std::map<std::string, sf::Font> fonts;
+		std::map<std::string, sf::Texture> _textures;
+		std::map<std::string, sf::Font> _fonts;
 	};
 }

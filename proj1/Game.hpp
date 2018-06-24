@@ -1,4 +1,5 @@
 #pragma once
+
 #include <memory>
 #include <string>
 #include <SFML/Graphics.hpp>
@@ -6,7 +7,7 @@
 #include "AssetManager.hpp"
 #include "InputManager.hpp"
 
-namespace Cari {
+namespace Sonar {
 	struct GameData {
 		StateMachine machine;
 		sf::RenderWindow window;
@@ -21,14 +22,12 @@ namespace Cari {
 		Game(int width, int height, std::string title);
 
 	private:
-		//framerate 60 times per second
-		const float dt = 1.0f / 60.0;
-		//to handle framerate
+		// Updates run at 60 per second.
+		const float dt = 1.0f / 60.0f;
 		sf::Clock _clock;
 
-		GameDataRef data = std::make_shared<GameData>();
+		GameDataRef _data = std::make_shared<GameData>();
 
 		void Run();
-
 	};
 }

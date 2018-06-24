@@ -1,4 +1,9 @@
-﻿  main.cpp
+﻿  StateMachine.cpp
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\users\jshlx\documents\workspace\proj1\proj1\game.hpp(25): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  SplashState.cpp
 c:\users\jshlx\documents\workspace\proj1\proj1\game.hpp(25): warning C4305: 'initializing': truncation from 'double' to 'const float'
   Game.cpp
 c:\users\jshlx\documents\workspace\proj1\proj1\game.hpp(25): warning C4305: 'initializing': truncation from 'double' to 'const float'

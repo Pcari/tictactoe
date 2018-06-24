@@ -4,22 +4,23 @@
 #include "State.hpp"
 #include "Game.hpp"
 
-namespace Cari {
-	//inherit state
+namespace Sonar {
 	class SplashState : public State {
 	public:
 		SplashState(GameDataRef data);
+
 		void Init();
+
 		void HandleInput();
 		void Update(float dt);
 		void Draw(float dt);
 
 	private:
-		GameDataRef data;
-		
-		//to check how long the app was running for
-		sf::Clock clock;
+		GameDataRef _data;
 
-		sf::Sprite background;
+		sf::Clock _clock;
+
+		sf::Texture _backgroundTexture;
+		sf::Sprite _background;
 	};
 }

@@ -1,40 +1,43 @@
 #include "StateMachine.hpp"
 
-namespace Cari {
+namespace Sonar {
 	void StateMachine::AddState(StateRef newState, bool isReplacing) {
-		this->isAdding = true;
-		this->isReplacing = isReplacing;
-		this->newState = std::move(newState);
+		this->_isAdding = true;
+		this->_isReplacing = isReplacing;
 
+		this->_newState = std::move(newState);
 	}
 
 	void StateMachine::RemoveState() {
-		this->isRemoving = true;
+		this->_isRemoving = true;
 	}
 
 	void StateMachine::ProcessStateChanges() {
-		if (this->isRemoving && !this->_states.empty()) {
+		if (this->_isRemoving && !this->_states.empty()) {
 			this->_states.pop();
 
 			if (!this->_states.empty()) {
 				this->_states.top()->Resume();
 			}
-			this->isRemoving = false;
+
+			this->_isRemoving = false;
 		}
-		if (this->isAdding) {
+
+		if (this->_isAdding) {
 			if (!this->_states.empty()) {
-				if (this->isReplacing) {
+				if (this->_isReplacing) {
 					this->_states.pop();
-				}
-				else {
+				} else {
 					this->_states.top()->Pause();
 				}
 			}
-			this->_states.push(std::move(this->newState));
+
+			this->_states.push(std::move(this->_newState));
 			this->_states.top()->Init();
-			this->isAdding = false;
+			this->_isAdding = false;
 		}
 	}
+
 	StateRef &StateMachine::GetActiveState() {
 		return this->_states.top();
 	}
