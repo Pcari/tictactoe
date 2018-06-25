@@ -1,7 +1,8 @@
 # tictactoe
 
-Taken a course from Udemy.com to better understand the concepts of
+Taken a course from Udemy.com to better understand the concepts of:
 C++ Game Programing
 Game Logic
 SFML Programming
+and
 Game Mechanics
