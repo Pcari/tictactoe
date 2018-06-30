@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "State.hpp"
 #include "Game.hpp"
+#include "AI.hpp"
 
 namespace Sonar {
 	class GameState : public State {
@@ -20,9 +21,10 @@ namespace Sonar {
 		void InitGridPieces();
 
 		void CheckAndPlacePiece();
-		//checked whenever playerp places a piece
+		//check whenever player places a piece
 		void CheckPlayerHasWon(int turn);
 
+		//checking if particular row/column/diagonal line matches
 		void Check3PiecesForMatch(int x1, int y1, int x2, int y2, int x3, int y3, int pieceToCheck);
 
 		GameDataRef _data;
@@ -43,6 +45,9 @@ namespace Sonar {
 		int turn;
 		//one of the states from DEFINITION
 		int gameState;
+
+		//create AI object
+		AI *ai;
 
 
 	};
